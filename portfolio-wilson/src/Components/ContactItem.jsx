@@ -44,9 +44,9 @@ export const Contact = () => {
             </div>
             <div className='flex flex-col flex-grow py-2'>
               <label htmlFor="message" className='uppercase text-sm py-2'>Message</label>
-              <textarea name="message" id="message" rows={10} className='border-2 rounded-lg p-3 border-gray-300 focus:outline-none focus:border-[#001b5e]'></textarea>
             
             </div>
+              <textarea name="message" id="message" rows={10} className='border-2 rounded-lg p-2 border-gray-300 focus:outline-none focus:border-[#001b5e] md:col-span-2'></textarea>
           </div>
           <button className='bg-[#001b5e] text-gray-200 mt-4 w-full p-4 rounded-lg'>
               Send Message
