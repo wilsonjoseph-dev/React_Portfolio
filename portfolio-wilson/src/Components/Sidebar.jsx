@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AiOutlineMenu,
   AiOutlineHome,
@@ -12,42 +12,48 @@ export const Sidebar = () => {
   const handleNAv = () => {
     setNav(!nav);
   };
+
   function handleMouseEnter(event) {
-    const description = event.target.querySelector('.description');
+    const description = event.target.querySelector(".description");
     if (description) {
-      description.style.opacity = '1';
+      description.style.opacity = "1";
     }
   }
-  
+
   function handleMouseLeave(event) {
-    const description = event.target.querySelector('.description');
+    const description = event.target.querySelector(".description");
     if (description) {
-      description.style.opacity = '0';
+      description.style.opacity = "0";
     }
   }
   useEffect(() => {
-    const links = document.querySelectorAll('.link');
-    links.forEach(link => {
-      link.addEventListener('mouseenter', handleMouseEnter);
-      link.addEventListener('mouseleave', handleMouseLeave);
+    const links = document.querySelectorAll(".link");
+    links.forEach((link) => {
+      link.addEventListener("mouseenter", handleMouseEnter);
+      link.addEventListener("mouseleave", handleMouseLeave);
     });
-  
+
     return () => {
-      links.forEach(link => {
-        link.removeEventListener('mouseenter', handleMouseEnter);
-        link.removeEventListener('mouseleave', handleMouseLeave);
+      links.forEach((link) => {
+        link.removeEventListener("mouseenter", handleMouseEnter);
+        link.removeEventListener("mouseleave", handleMouseLeave);
       });
     };
   }, []);
   return (
     <div>
-      <AiOutlineMenu
-        size={35}
-        onClick={() => handleNAv()}
-        className="fixed top-4 right-4 z-[99] md:hidden rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-2 cursor-pointer w-16"
-      />
+      
+        <AiOutlineMenu
+          size={35}
+          onClick={() => handleNAv()}
+          className="fixed top-4 right-4 z-[99] md:hidden rounded-full  bg-gray-100 m-2 p-2 cursor-pointer w-16"
+        />
+      
       {nav ? (
-        <div className="fixed w-full h-screen bg-white/90 flex flex-col justify-center items-center z-20 md:hidden ">
+        <div 
+          className="fixed w-full h-screen bg-white/90 flex flex-col justify-center items-center z-20 md:hidden "
+          onClick={() => handleNAv()}
+        >
           <a
             onClick={() => handleNAv()}
             href="#main"
